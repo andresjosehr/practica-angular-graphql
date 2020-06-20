@@ -1,0 +1,83 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yinka Enoch Adedokun">
+    <title>Login Page</title>
+</head>
+
+<body style="
+background-image: url('/assets/images/login-background.jpg');
+margin: 0;
+top: 0;
+height: 100vh;
+width: 100vw;
+background-repeat: no-repeat;
+background-size: cover;
+display: table;
+background-position: center;
+">
+    <!-- Main Content -->
+    <div class="container-fluid container-fluid-parent">
+        <div class="row main-content bg-success text-center">
+            <div class="col-md-5 text-center company__info">
+                <span class="company__logo">
+                    <h2>
+                        <span class="fa fa-android"></span>
+                </h2>
+                </span>
+                <!-- <h4 class="company_title">Your Company Logo</h4> -->
+            </div>
+            <div class="col-md-7 col-xs-12 col-sm-12 login_form ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2>Panel de ingreso</h2>
+                    </div>
+                    <div class="row">
+                        <div [formGroup]="user" class="form-group">
+                            <div class="row">
+                                <input [class.is-invalid]="user.get('email').dirty && user.get('email').invalid" [class.is-valid]="user.get('email').dirty && !user.get('email').invalid" formControlName='email' type="text" class="form__input form-control mb-1" placeholder="Correo">
+                                <div *ngIf="user.get('email').hasError('email')" class="invalid-feedback" style='margin-bottom: -25px;'>
+                                    Debes introducir un correo electronico valido
+                                </div>
+                                <div *ngIf="user.get('email').hasError('required')" class="invalid-feedback" style='margin-bottom: -25px;'>
+                                    Debes introducir un correo electronico
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input [class.is-invalid]="user.get('password').dirty && user.get('password').invalid" [class.is-valid]="user.get('password').dirty && user.get('password').valid" formControlName='password' type="password" class="form__input form-control mb-1" placeholder="Password">
+                                <div *ngIf="user.get('password').hasError('required')" class="invalid-feedback" style='margin-bottom: -25px;'>
+                                    Debes introducir tu contraseña
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <input type="checkbox" name="remember_me" id="remember_me" class="mr-2">
+                                <label for="remember_me">Recuerdame!</label>
+                            </div>
+                            <div class="row">
+                                <button *ngIf='!loading' type="submit" (click)='submitLoginForm()' class="btn">Ingresar</button><br>
+                                <div *ngIf='loading' class="div-sepinner-login">
+                                    <div class="spinner-border text-primary ml-auto mr-auto" role="status">
+                                        <span class="sr-only ml-auto mr-auto">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="register-section">¿Aun no tienes una cuenta? <a href="#">Registrarme</a></p>
+                    </div>
+                    <div *ngIf='loginStatus==1' class="alert-login alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        <strong>¡Oh no!</strong> Las credenciales son invalidas
+                    </div>
+                    <div *ngIf='loginStatus==2' class="alert-login alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        <strong>¡Genial!</strong> Inicio de sesion correcto
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid text-center footer">
+        <!-- <p>Desarrollado con &hearts; by Jose Andres</p> -->
+    </div>
+</body>
