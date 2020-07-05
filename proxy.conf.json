@@ -1,0 +1,8 @@
+{
+    "/graphql": {
+        "target": "http://[::1]:27017",
+        "secure": false,
+        "changeOrigin":true,
+        "logLevel": "debug"
+    }
+}

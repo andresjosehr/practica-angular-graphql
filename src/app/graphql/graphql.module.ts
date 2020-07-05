@@ -21,7 +21,7 @@ export class GraphqlModule {
       ){
 
         apollo.create({
-          link: httpLink.create({uri: "http://localhost:27017/graphql"}),
+          link: httpLink.create({uri: "/graphql"}),
           cache: new InMemoryCache()
         })
 

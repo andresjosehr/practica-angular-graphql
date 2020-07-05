@@ -1,0 +1,18 @@
+.main-row,
+.main-col {
+    height: 85vh;
+    width: 100vw;
+}
+
+.main-col {
+    display: table;
+}
+
+.main-card {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main-card .card {
+    margin: auto;
+}

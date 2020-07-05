@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { login, getUsers, userData } from './operations/query';
 import { ApiService } from './services/api.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,19 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'angular-graphql';
 
   constructor(
-    private apollo: Apollo, 
-    private api: ApiService,
-  ){
-    
-  }
+    private apollo:     Apollo, 
+    private api:        ApiService,
+    public authGuard:  AuthGuard
+  ){}
 
   ngOnInit(){
+    // this.loggedIn = this.authGuard.canActivate;
+  }
+  
 
     // const headers={
     //   headers: new HttpHeaders({
@@ -39,6 +43,7 @@ export class AppComponent {
     // this.api.request(userData, "userData", {}, headers).subscribe((result)=>{
     //   console.log(result)
     // })
-  }
+
+
 
 }
