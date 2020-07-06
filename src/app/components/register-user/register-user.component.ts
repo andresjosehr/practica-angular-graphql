@@ -44,7 +44,6 @@ export class RegisterUserComponent implements OnInit {
     this.errorMessage   = undefined;
     this.loading=true
 
-    setTimeout(() => {
 
       this.apiService.registerData(registerUser, this.userFormGroup.value).subscribe((result)=>{
       
@@ -59,7 +58,6 @@ export class RegisterUserComponent implements OnInit {
   
       })
       
-    }, 2000);
     
   }
 

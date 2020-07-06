@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, Apollo }     from 'apollo-angular';
 import { HttpLinkModule, HttpLink }   from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { environment } from 'src/environments/environment';
+
 
 
 
@@ -21,7 +23,7 @@ export class GraphqlModule {
       ){
 
         apollo.create({
-          link: httpLink.create({uri: "/graphql"}),
+          link: httpLink.create({uri: environment.apiUrl}),
           cache: new InMemoryCache()
         })
 

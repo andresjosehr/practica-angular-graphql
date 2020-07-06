@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.loading=true;
     this.loginStatus=0;
     
-    setTimeout(() => {
 
       const bodyData={
         email:  this.user.get('email').value,
@@ -74,7 +73,6 @@ export class LoginComponent implements OnInit {
 
       });
       
-    }, 1500);
 
   }
 
